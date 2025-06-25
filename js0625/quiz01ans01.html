@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 帳密檢測（內建帳號：admin，密碼：1234）
+        var uid = "admin";
+        var upw = "1234";
+
+        // 寫法一：使用巢狀檢查
+        // 帳號正確
+        if (uid == "admin") {
+            // 密碼正確
+            if (upw === "1234") {
+                console.log("帳密正確");
+            } else {
+                // 密碼錯誤
+                console.log("密碼錯誤");
+            }
+        } else {
+            // 帳號錯誤
+            if (upw === "1234") {
+                console.log("帳號錯誤");
+            } else {
+                // 密碼錯誤
+                console.log("帳密都錯");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
