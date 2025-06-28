@@ -20,16 +20,18 @@
         分數：82 => 成績等級為甲等
         */
 
-        var score = 60;
+        var score = 82;
 
-        if (a >= 80 && a <= 100) {
+        if (score >= 80 && score <= 100) {
             console.log(`分數：${score}=>成績為甲等`);
-        } else if (a >= 70 && a <= 79){
-            console.log(`分數：${score}=>成績為乙等`)
-        }else if (a >= 60 && a <= 69){
-            console.log(`分數：${score}=>成績為丙等`)
-        }else if (a >= 0 && a <= 69){
-            console.log(`分數：${score}=>成績為丙等`)
+        } else if (score >= 70 && score <= 79) {
+            console.log(`分數：${score}=>成績為乙等`);
+        } else if (score >= 60 && score <= 69) {
+            console.log(`分數：${score}=>成績為丙等`);
+        } else if (score >= 0 && score <= 59) {
+            console.log(`分數：${score}=>成績為丁等`);
+        } else {
+            console.log(`分數不存在，請重新輸入`);
         }
 
     </script>
