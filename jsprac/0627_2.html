@@ -29,13 +29,13 @@
         var input = 8;
 
         if (input >= 1 && input <= 10) {
-            console.log("您的用水度數為" + input + "度，每度為7.35元。實付水費為" + Math.trunc(input * 7.35) + "元");
+            console.log("您的用水度數為" + input + "度，每度為7.35元。實付水費為" + Math.round(input * 7.35) + "元");
         } else if (input >= 11 && input <= 30) {
-            console.log("您的用水度數為" + input + "度，每度為9.45元。實付水費為" + Math.trunc(input * 9.45) + "元");
+            console.log("您的用水度數為" + input + "度，每度為9.45元。實付水費為" + Math.round(input * 9.45) + "元");
         } else if (input >= 31 && input <= 50) {
-            console.log("您的用水度數為" + input + "度，每度為11.55元。實付水費為" + Math.trunc(input * 11.55) + "元");
+            console.log("您的用水度數為" + input + "度，每度為11.55元。實付水費為" + Math.round(input * 11.55) + "元");
         } else if (input > 50) {
-            console.log("您的用水度數為" + input + "度，每度為12.075元。實付水費為" + Math.trunc(input * 12.075) + "元");
+            console.log("您的用水度數為" + input + "度，每度為12.075元。實付水費為" + Math.round(input * 12.075) + "元");
         } else {
             console.log("度數輸入錯誤，請重新輸入");
         }
