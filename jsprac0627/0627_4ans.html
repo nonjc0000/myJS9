@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 票價種類
+        var ticketType = 3; /* 票價種類 */
+        var ticketPrice = 0; /* 單一票價價格 */
+        var ticketName = ""; /* 票價名稱 */
+        var ticketNum = 2; /* 票價張數 */
+        var errFlag = "N";     /* 存放是否發生錯誤(識別變數) */
+        // 可以先產出流程圖，再把程式放進去
+
+        switch (ticketType) { /* 雖然現在不需要case 1，但如果要循環式操作還是要寫 */
+            default: /* default也可以寫在第一行來防呆 */
+                console.log("err!票種類別不存在");
+                errFlag = "Y"
+                break;
+            case 1: /* 全票 */
+                ticketPrice = 500;
+                ticketName = "全票"
+                break;
+            case 2: /* 優待票 */
+                ticketPrice = 500 * 0.8;
+                ticketName = "優待票"
+                break;
+            case 3: /* 敬老票 */
+                ticketPrice = 500 * 0.8 * 0.7;
+                ticketName = "敬老票"
+                break;
+        }
+        if (errFlag == "N") { /* 如果no error才顯示結果 */
+            console.log(`${ticketName}${ticketNum}張，票價為${ticketPrice * ticketNum}`);
+        }
+    </script>
+</body>
+
+</html>

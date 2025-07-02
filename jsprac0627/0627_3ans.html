@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script> /* 區間都用else if */
+        var intScore = 100; /* integer (abbr. int)整數 */
+        var strLevel = "";/* 如果變數是存放字串的資料，可以加str(string)在前面 */
+
+        // command+D選取所有變數/tag，然後可以一起改
+
+        if (intScore < 0 || intScore > 100) { /* 通常防呆要先做，不然後面做白工會影響效能 */
+            console.log("err不是有效數值") /* 先排除錯誤情境 */
+        } else {
+            if (intScore >= 80 && intScore <= 100) { 
+                strLevel = "甲";
+            } else if(intScore >= 70 && intScore <= 79) {
+                strLevel = "乙";
+            } else if (intScore >= 60 && intScore <= 69) {
+                strLevel = "丙";
+            } else {
+                strLevel = "丁";
+            }
+            console.log(`分數：${intScore}=>成績等級為${strLevel}等`);
+        }
+    </script>
+</body>
+
+</html>
