@@ -9,11 +9,56 @@
 
 <body>
     <script>
-        // 從1加到10的總和
+        // 1-10的合計
+        // 每次做兩個數字加總
+        /* 
+        s=0（宣告合計變數）累計 => s = s + i
+        i=1 => s=s+i => s=0+1=1
+        i=2 => s=1+i => s=1+2=3
+        i=3 => s=3+i => s=3+3=6
+        i=4 => s=6+i => s=6+4=10
+        ... 寫迴圈一定要找出規律性
+        */
+        var s = 0; /* s宣告要在迴圈外，不然會重複宣告 */
 
         for (var i = 1; i <= 10; i++) {
-            document.write(i);
+            s = s + i;
         }
+        document.write("1+2+3+...+10=" + s + "<br>");
+
+        // 請統計出1-100之間的奇數和
+        // 請統計出100-1之間的偶數和
+        // 請統計1-100之間的3的倍數，同時也是5的倍數和，要列出來
+
+        document.write("<hr>請統計出1-100之間的奇數和？<br>")
+        var s = 0
+
+        for (i = 1; i <= 100; i++) {
+            if (i % 2 == 1) {
+                s = s + i;
+            }
+        } document.write(`第一題：${s}<br>`);
+
+        document.write("請統計出100-1之間的偶數和？<br>")
+        var s = 0;
+
+        for (i = 100; i >= 1; i--) {
+            if (i % 2 == 0) {
+                s = s + i;
+            }
+        } document.write(`第二題：${s}<br>`);
+
+        document.write("請統計1-100之間的3的倍數，同時也是5的倍數和，並列出來<br>")
+        var s = 0;
+
+        for (i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                s = s + i;
+                document.write(i + ",");
+            }
+        } document.write(`總和為${s}`);
+
+
     </script>
 </body>
 
