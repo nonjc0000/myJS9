@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 標籤：顯示標題 -->
+    <!-- 如果lable for id對應到input id，點擊lable會直接跳進輸入框 -->
+    <label for="n1">數值1</label>
+    <!-- 文字方塊 -->
+    <input type="number" id="n1">
+    <br><br>
+    <button onclick="add()">+</button>
+    <button onclick="minus()">-</button>
+    <button onclick="multi()">*</button>
+    <button onclick="divide()">/</button>
+    <br><br>
+    <label for="n2">數值2</label>
+    <input type="number" id="n2">
+    <br>
+    <p id="result">結果</p>
+
+    <script>
+        var n1 = document.getElementById("n1");
+        var n2 = document.getElementById("n2");
+        var result = document.getElementById("result");
+
+        function add() {
+            result.textContent = parseInt(n1.value) + parseInt(n2.value);
+        }
+
+        function minus() {
+            result.textContent = parseInt(n1.value) - parseInt(n2.value);
+        }
+
+        function multi() {
+            result.textContent = parseInt(n1.value) * parseInt(n2.value);
+        }
+
+        function divide() {
+            // 取小數位 => toFixed（小數位）
+            result.textContent = (parseInt(n1.value) / parseInt(n2.value)).toFixed(2);
+        }
+        
+    </script>
+
+</body>
+
+</html>

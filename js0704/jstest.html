@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="result">結果</p>
+
+    <script>
+        // 輸入視窗不斷輸入，直到輸入-1 calls off
+        // 先以「字串型別」的前提下進行檢查，再轉成數值檢查
+
+        var pass = 0;
+        var fail = 0;
+        var sum = 0;
+        var avg = 0.0;
+
+        while (1) {
+            var score = prompt("請輸入分數");
+
+            if (score == null) {
+                pass = 0;
+                fail = 0;
+                sum = 0;
+                avg = 0.0;
+                alert("您按了取消，即將結束輸入！")
+                break;
+            }
+
+            if (score.trim() == "") {
+                alert("成績不能空白，請重新輸入！");
+                continue;
+            }
+
+            if (score == "-1") {
+                alert("輸入完成");
+                break;
+            }
+
+            score = Number(score);
+
+            if (isNaN(score)) {
+                alert("非數值，請重新輸入");
+                continue;
+            } else if (score < 0 || score > 100) {
+                alert("不是有效範圍0-100，請重新輸入！")
+                continue;
+            }
+
+            if (score >= 60) {
+                pass++;
+            } else {
+                fail++;
+            }
+
+            sum = sum + score;
+        }
+
+        avg = sum / (pass + fail);
+
+        var result = document.getElementById("result");
+
+        result.innerHTML = `
+        　及格人數：${pass}人<br>
+        不及格人數：${fail}人<br>
+        　　　總分：${sum}分<br>
+        　　總平均：${avg.toFixed(2)}分
+       `;
+
+    </script>
+</body>
+
+</html>

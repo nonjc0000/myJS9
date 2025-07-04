@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>for</h2>
+
+    <script>
+        // 1+2+3+4+5=?
+        // for
+        var s1 = 0;
+        for (var i = 1; i <= 5; i++) {
+            s1 = s1 + i;
+        }
+        document.write(`1+2+3+4+5=${s1}`);
+    </script>
+    <hr>
+    <h2>while</h2>
+
+    <script>
+        // 1+2+3+4+5=?
+        var s2 = 0;
+        var num = 1;/* 如果初始值為0要小心會多一次，num++順序要改 */
+        while (num <= 5) { /* 先檢查是否可以執行迴圈的條件 */
+            s2 = s2 + num; /* 如果只寫到這裡的話，num值不會改，所以迴圈會一直做 */
+            num++;
+        }
+        document.write(`1+2+3+4+5=${s2}`);
+    </script>
+    <hr>
+    <h2>do - while</h2>
+
+    <script>
+        // 1+2+3+4+5=?
+        var s3 = 0;
+        var num = 0;
+        do { /* 先執行，再檢查迴圈的條件 */
+            s3 = s3 + num;
+            num++;
+        } while (num <= 5);
+        document.write(`1+2+3+4+5=${s3}`);
+    </script>
+
+    <h2>循環輸入</h2>
+    <script>
+        do {
+            var month = prompt("請輸入月份"); /* 輸入視窗輸入的永遠是字串 */
+
+            // alert(month);
+            // 按了取消，回傳null，所以結束迴圈
+            if (month == null) {
+                break; /* 結束迴圈 */
+            } else if (month == "") {
+                alert("月份不能空白，請重新輸入");
+                continue; /* 忽略以下程式，回到迴圈開始的位置 */
+            } else if (month < 1 || month > 12) {
+                alert("月份範圍錯誤，請重新輸入");
+                continue;
+            } else if (isNaN(Number(month))) {
+                // 函式Number(字串) => 
+                // 若是數字 => 回傳數字
+                // 若是數字 => 回傳NaN
+                // 檢查NaN => isNaN(值) => 值是不是NaN
+                alert("非數值，請重新輸入");
+                continue;
+            }
+
+
+
+            alert(`輸入的月份為：${month}`);
+        } while (true); /* true => 1 , false => 0 */
+
+    </script>
+</body>
+
+</html>
