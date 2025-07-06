@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>猜數字</h2>
+    <p id="result">結果</p>
+
+    <script>
+        var Rand = Math.floor(Math.random() * 100) + 1;
+        console.log(Rand);
+        var Num = 0;
+        var Stored = 0;
+        var result = document.getElementById("result")
+
+        while (1) {
+            Num = prompt("請猜一個1-100之間的數字！");
+
+            if (Num == null) {
+                result.innerHTML = "您輸了！🥹"
+                alert("您按了取消，遊戲即將結束！");
+                break;
+            }
+
+            if (Num.trim() == "") {
+                alert("請輸入數字！");
+                continue;
+            }
+
+            Num = Number(Num);
+            console.log(Num);
+
+            if (isNaN(Num)) {
+                alert("不是數字，請重新輸入！");
+                continue;
+            }
+
+            if (Num < 1 || Num > 100) {
+                alert("超出區間，請輸入1-100之間的數字！");
+                continue;
+            }
+
+            if (Stored == 0) {
+
+                if (Num == Rand) {
+                    result.innerHTML = `您贏了！<br><br>答案為${Rand}🎉`
+                    alert("您猜對了！");
+                    break;
+                } else if (Num > Rand) {
+                    alert(`太大了！提示：0-${Num}`)
+                } else if (Num < Rand) {
+                    alert(`太小了！提示：${Num}-100`)
+                }
+                Stored = Num;
+                continue;
+
+            } else {
+
+                if (Num == Rand) {
+                    result.innerHTML = `您贏了！<br><br>答案為${Rand}🎉`
+                    alert("您猜對了！");
+                    break;
+
+                } else if (Num > Rand) {
+                    if (Stored < Rand) {
+                        alert(`太大了！提示：${Stored}-${Num}`);
+                        Stored = Num;
+                    // } else if (Rand < Stored && Stored < Num) {
+                    //     alert(`太大了！提示：${Stored}-${Num}`);
+                    } else if (Stored > Num) {
+                        alert(`太大了！提示：0-${Num}`);
+                        Stored = Num;
+                    }
+
+                    continue;
+
+                } else if (Num < Rand) {
+                    if (Stored < Num) {
+                        alert(`太小了！提示：${Num}-100`);
+                        Stored = Num;
+                    // } else if (Num < Stored && Stored < Rand) {
+                    //     alert(`太小了！提示：${Stored}-${Num}`)
+                    } else if (Stored > Rand) {
+                        alert(`太小了！提示：${Num}-${Stored}`)
+                        Stored = Num;
+                    }
+                    
+                    continue;
+                }
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
