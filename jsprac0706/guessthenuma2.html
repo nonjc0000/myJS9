@@ -57,14 +57,8 @@
 
             // 檢查是否結束遊戲
             if (keyNum == -1) {
-                // 取亂數
-                let rd = Math.floor(Math.random() * 100) + 1;
-                console.log(rd)
 
-                let min = 1;
-                let max = 100;
-                let count = 0;
-
+                // 輸出之後隱藏遊戲區
                 game.style.display = "none";
                 // 顯示再玩一次按鈕
                 rePlay.style.display = "block";
@@ -73,6 +67,7 @@
 
             if (keyNum === rd) {
                 result.innerHTML += `第${count}次，Bingo!<br>`;
+                
                 // 輸出之後隱藏遊戲區
                 game.style.display = "none";
                 // 顯示再玩一次按鈕
