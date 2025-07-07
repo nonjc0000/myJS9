@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>猜數字</h2>
+    <!-- 遊戲區 -->
+    <div id="game"> <!-- 容器，可以放各種東西 -->
+        請輸入任意數：（若要離開，請輸入-1）
+        <input type="number" id="txtNo">
+        <button onclick="btnClick()">確定</button>
+    </div>
+
+
+    <!-- 顯示的位置 -->
+    <p id="result"></p>
+
+    <!-- 按鈕做在外面才不會被隱藏 -->
+    <button id="rePlay" onclick="btnReset()" style="display: none;">再玩一次</button>
+
+    <script>
+        // 取得遊戲區的位置
+        let game = document.getElementById("game");
+
+        // 取得顯示的位置
+        let result = document.getElementById("result");
+
+        // 取得再玩一次按鈕
+        let rePlay = document.getElementById("rePlay");
+
+        // 取亂數
+        let rd = Math.floor(Math.random() * 100) + 1;
+        console.log(rd)
+
+        let min = 1;
+        let max = 100;
+        let count = 0;
+        let txtNo = ""; /* 公用變數：可以跨區域使用的變數 */
+
+        function btnClick() {
+            count++;
+            txtNo = document.getElementById("txtNo");
+
+            let keyNum = parseInt(txtNo.value);
+
+            // 檢查是否空白
+            if (isNaN(keyNum)) {
+                alert("不能空白，請重新輸入");
+                txtNo.focus();
+                return; /* 中斷函式 */
+            }
+
+            // 檢查是否結束遊戲
+            if (keyNum == -1) {
+                // 取亂數
+                let rd = Math.floor(Math.random() * 100) + 1;
+                console.log(rd)
+
+                let min = 1;
+                let max = 100;
+                let count = 0;
+
+                game.style.display = "none";
+                // 顯示再玩一次按鈕
+                rePlay.style.display = "block";
+                return;
+            }
+
+            if (keyNum === rd) {
+                result.innerHTML += `第${count}次，Bingo!<br>`;
+                // 輸出之後隱藏遊戲區
+                game.style.display = "none";
+                // 顯示再玩一次按鈕
+                rePlay.style.display = "block";
+
+                return; /* 在函式裡表示以下都不做、結束function */
+            }
+
+            if (keyNum > rd) {
+                max = keyNum;
+                result.innerHTML += `第${count}次，太大了，提示：${min}-${max}<br>`;
+            } else {
+                min = keyNum;
+                result.innerHTML += `第${count}次，太小了，提示：${min}-${max}<br>`;
+            }
+            // 清除文字方塊內容
+            txtNo.value = "";
+            // 指定游標到文字方塊上
+            txtNo.focus();
+
+        }
+
+        // 再玩一次
+        function btnReset() {
+            // 清除資料
+            txtNo.value = "";
+            result.innerHTML = "";
+            min = 1;
+            max = 100;
+            count = 0;
+
+            // 取亂數
+            rd = Math.floor(Math.random() * 100) + 1;
+            console.log(rd);
+
+            // 顯示遊戲區
+            game.style.display = "block";
+            // 隱藏再玩一次按鈕
+            rePlay.style.display = "none";
+        }
+        
+    </script>
+
+</body>
+
+</html>
