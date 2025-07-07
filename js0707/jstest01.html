@@ -18,23 +18,30 @@
 
         console.log("for loop---");
         for (i = 0; i < arr1.length; i++) {
-            if (typeof (arr1[i]) === 'string') {
+            if (typeof arr1[i] === "string") {
                 console.log(arr1[i]);
             }
-
         }
 
         console.log("for of---");
         for (let n of arr1) {
-            if (typeof (n) === 'string') {
+            if (typeof n === "string") {
                 console.log(n);
             }
         }
 
         console.log("forEach----");
         arr1.forEach((m) => {
-            if (typeof (m) === 'string') {
+            if (typeof m === "string") {
                 console.log(m);
+            }
+        })
+
+        // map
+        console.log("map----")
+        arr1.map((n) => {
+            if (typeof n === "string") {
+                console.log(n);
             }
         })
 
