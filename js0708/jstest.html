@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>樂透號碼產生器</h2>
+    <button id="btnW" onclick="btnW()">威力彩</button>
+    <button id="btD" onclick="btnD()">大樂透</button>
+    <button id="btn539" onclick="btn539()">今彩539</button>
+
+    <p id="unorderedResult">不排序結果</p>
+    <br>
+    <p id="orderedResult">排序結果</p>
+
+</body>
+
+<script>
+
+    let unorderedResult = document.getElementById("unorderedResult");
+    let orderedResult = document.getElementById("orderedResult");
+
+    function btnW() {
+        let arr1 = []; /* 第一區號碼 */
+        let arr2 = []; /* 第二區號碼 */
+        let rd = 0;
+
+        while (arr1.length < 6) {
+            rd = Math.floor(Math.random() * 38) + 1
+            arr1.push(rd);
+
+            for (i = 0; i < arr1.length; i++) {
+                let searchIndex = arr1.indexOf(arr1[i]);
+                if (searchIndex == -1) {
+                    break;
+                } else {
+                    continue;
+                }
+            }
+
+        }
+        console.log(arr1);
+
+        rd = Math.floor(Math.random() * 8) + 1
+        arr2.push(rd);
+        console.log(arr2);
+
+        unorderedResult.innerHTML = `您的威力彩第一區號碼為：${arr1}。第二區號碼為：${arr2}。`
+
+        let arr3 = arr1.sort((a, b) => {
+            return (a - b);
+        })
+
+
+        orderedResult.innerHTML = `排序後的號碼為第一區${arr3}。第二區號碼為：${arr2}。`
+    }
+
+    function btnD() {
+        let arr1 = []; /* 特別號 */
+        let arr2 = []; /* 普通號碼 */
+        let rd = 0;
+        let searchIndex = arr2.indexOf(arr1[0]);
+
+        rd = Math.floor(Math.random() * 49) + 1
+        arr1.push(rd);
+        console.log(arr1);
+
+        while (arr2.length < 6 && searchIndex == -1) {
+            rd = Math.floor(Math.random() * 49) + 1
+            arr2.push(rd)
+
+            for (i = 0; i < arr1.length; i++) {
+                let searchIndex = arr2.indexOf(arr1[i]);
+                if (searchIndex == -1) {
+                    break;
+                } else {
+                    continue;
+                }
+
+            }
+            console.log(arr2);
+
+            unorderedResult.innerHTML = `您的大樂透號碼為：${arr2}。特別號為：${arr1}。`
+
+            let arr3 = arr2.sort((a, b) => {
+                return (a - b);
+            })
+
+            orderedResult.innerHTML = `排序後的號碼為第一區${arr2}。特別號為：${arr1}。`
+        }
+    }
+
+    function btn539() {
+        let arr1 = []; /* 第一區號碼 */
+        let rd = 0;
+
+        while (arr1.length < 5) {
+            rd = Math.floor(Math.random() * 39) + 1
+            arr1.push(rd);
+
+            for (i = 0; i < arr1.length; i++) {
+                let searchIndex = arr1.indexOf(arr1[i]);
+                if (searchIndex == -1) {
+                    break;
+                } else {
+                    continue;
+                }
+        }
+        console.log(arr1);
+
+        unorderedResult.innerHTML = `您的今彩539號碼為：${arr1}。`
+
+
+        let arr2 = arr1.sort((a, b) => {
+            return (a - b);
+        })
+
+        orderedResult.innerHTML = `排序後的號碼為第一區${arr2}。`
+    }
+}
+
+
+</script>
+
+</html>
