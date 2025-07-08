@@ -46,28 +46,36 @@
             count++;
             txtNo = document.getElementById("txtNo");
 
-            let keyNum = parseInt(txtNo.value);
+            let keyNum = txtNo.value;
 
-            // 檢查是否空白
-            if (isNaN(keyNum)) {
+            // 檢查是否非數字
+            if (isNaN(keyNum)) { /* 不用先轉資料型別，js會自己識別 */
+                alert("非數字，請重新輸入");
+                txtNo.focus();
+                return; /* 中斷函式 */
+            }
+
+            if (keyNum.trim()===""){
                 alert("不能空白，請重新輸入");
                 txtNo.focus();
                 return; /* 中斷函式 */
             }
 
-            // 檢查是否結束遊戲
-            if (keyNum == -1) {
+            keyNum = parseInt(txtNo.value);
 
-                // 輸出之後隱藏遊戲區
-                game.style.display = "none";
-                // 顯示再玩一次按鈕
-                rePlay.style.display = "block";
-                return;
-            }
+                // 檢查是否結束遊戲
+                if (keyNum == -1) {
+
+                    // 輸出之後隱藏遊戲區
+                    game.style.display = "none";
+                    // 顯示再玩一次按鈕
+                    rePlay.style.display = "block";
+                    return;
+                }
 
             if (keyNum === rd) {
                 result.innerHTML += `第${count}次，Bingo!<br>`;
-                
+
                 // 輸出之後隱藏遊戲區
                 game.style.display = "none";
                 // 顯示再玩一次按鈕
@@ -108,7 +116,7 @@
             // 隱藏再玩一次按鈕
             rePlay.style.display = "none";
         }
-        
+
     </script>
 
 </body>

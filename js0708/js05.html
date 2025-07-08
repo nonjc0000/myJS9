@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>使用filter，找出陣列中超過100以上的值</h2>
+    <hr>
+
+    <script>
+        let arr1 = [1, 6, 7, 100, 234];
+
+        // 找出陣列中超過100的值
+        // 寫法一
+        let arr2 = arr1.filter((n) => {
+            if (n >= 100) {
+                return true;
+            }
+        });
+        console.log(arr2);
+
+        // 寫法二
+        let arr3 = arr1.filter((n) => {
+
+            return n >= 100;
+        }
+        );
+        console.log(arr3);
+
+        // 寫法三
+        let arr4 = arr1.filter((n) => n >= 100);
+        console.log(arr4);
+        
+    </script>
+</body>
+
+</html>
