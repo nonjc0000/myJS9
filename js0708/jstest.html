@@ -14,9 +14,12 @@
     <button id="btD" onclick="btnD()">大樂透</button>
     <button id="btn539" onclick="btn539()">今彩539</button>
 
-    <p id="unorderedResult">不排序結果</p>
-    <br>
-    <p id="orderedResult">排序結果</p>
+    <div id="result">
+        <p id="unorderedResult">不排序結果</p>
+        <br>
+        <p id="orderedResult">排序結果</p>
+    </div>
+
 
 </body>
 
@@ -24,6 +27,9 @@
 
     let unorderedResult = document.getElementById("unorderedResult");
     let orderedResult = document.getElementById("orderedResult");
+    let result = document.getElementById("result");
+
+    result.style.display = "none"
 
     function btnW() {
         let arr1 = []; /* 第一區號碼 */
@@ -58,6 +64,8 @@
 
 
         orderedResult.innerHTML = `排序後的號碼為第一區${arr3}。第二區號碼為：${arr2}。`
+
+        result.style.display = "block"
     }
 
     function btnD() {
@@ -92,6 +100,8 @@
             })
 
             orderedResult.innerHTML = `排序後的號碼為第一區${arr2}。特別號為：${arr1}。`
+
+            result.style.display = "block"
         }
     }
 
@@ -110,19 +120,21 @@
                 } else {
                     continue;
                 }
+            }
+            console.log(arr1);
+
+            unorderedResult.innerHTML = `您的今彩539號碼為：${arr1}。`
+
+
+            let arr2 = arr1.sort((a, b) => {
+                return (a - b);
+            })
+
+            orderedResult.innerHTML = `排序後的號碼為${arr2}。`
+
+            result.style.display = "block"
         }
-        console.log(arr1);
-
-        unorderedResult.innerHTML = `您的今彩539號碼為：${arr1}。`
-
-
-        let arr2 = arr1.sort((a, b) => {
-            return (a - b);
-        })
-
-        orderedResult.innerHTML = `排序後的號碼為第一區${arr2}。`
     }
-}
 
 
 </script>
