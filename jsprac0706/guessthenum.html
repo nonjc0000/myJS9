@@ -16,7 +16,8 @@
         var Rand = Math.floor(Math.random() * 100) + 1;
         console.log(Rand);
         var Num = 0;
-        var Stored = 0;
+        let min = 1;
+        let max = 100;
         var result = document.getElementById("result")
 
         while (1) {
@@ -46,56 +47,22 @@
                 continue;
             }
 
-            if (Stored == 0) {
-
-                if (Num == Rand) {
-                    result.innerHTML = `您贏了！<br><br>答案為${Rand}🎉`
-                    alert("您猜對了！");
-                    break;
-                } else if (Num > Rand) {
-                    alert(`太大了！提示：0-${Num}`)
-                } else if (Num < Rand) {
-                    alert(`太小了！提示：${Num}-100`)
-                }
-                Stored = Num;
-                continue;
-
-            } else {
-
-                if (Num == Rand) {
-                    result.innerHTML = `您贏了！<br><br>答案為${Rand}🎉`
-                    alert("您猜對了！");
-                    break;
-
-                } else if (Num > Rand) {
-                    if (Stored < Rand) {
-                        alert(`太大了！提示：${Stored}-${Num}`);
-                        Stored = Num;
-                    // } else if (Rand < Stored && Stored < Num) {
-                    //     alert(`太大了！提示：${Stored}-${Num}`);
-                    } else if (Stored > Num) {
-                        alert(`太大了！提示：0-${Num}`);
-                        Stored = Num;
-                    }
-
-                    continue;
-
-                } else if (Num < Rand) {
-                    if (Stored < Num) {
-                        alert(`太小了！提示：${Num}-100`);
-                        Stored = Num;
-                    // } else if (Num < Stored && Stored < Rand) {
-                    //     alert(`太小了！提示：${Stored}-${Num}`)
-                    } else if (Stored > Rand) {
-                        alert(`太小了！提示：${Num}-${Stored}`)
-                        Stored = Num;
-                    }
-                    
-                    continue;
-                }
-
+            if (Num === Rand) {
+                alert(`恭喜猜對了`);
+                result.innerHTML = "您贏了！🎉"
+                break;
             }
+
+            if (Num > Rand) {
+                max = Num;
+                alert(`太大了，提示：${min}-${max}`)
+            } else {
+                min = Num;
+                alert(`太小了，提示：${min}-${max}`);
+            }
+
         }
+
 
     </script>
 </body>
