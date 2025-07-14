@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>函式</h1>
+    <br>
+    <!-- 要加label for的前提是看點擊文字的時候游標會不會往輸入框裡跳，會影響SEO -->
+    <input type="text" id="name">
+    <label for="name">請輸入姓名：</label>
+    <button onclick="sayHi3(getName())">confirm</button>
+    <p id="showData"></p>
+
+    <script>
+        // 寫法一：無參數、無回傳值（最直白）
+        function sayHi1() {
+            // 取得文字方塊的內容
+            let name1 = document.getElementById('name').value;
+
+            // 再取得顯示的位置
+            let showData = document.getElementById('showData');
+
+            // 顯示結果
+            showData.textContent = `Hi, ${name1}`;
+        }
+
+        // 寫法二：無參數、有回傳值（此範例不適合）
+        function sayHi2() {
+            // 取得文字方塊的內容
+            let name1 = document.getElementById('name').value;
+
+            // 再取得顯示的位置
+            let showData = document.getElementById('showData');
+
+            // 顯示結果
+            showData.textContent = `Hi, ${name1}`;
+
+            return name1; // 其實沒什麼意義
+        }
+
+        // 寫法三：有參數、無回傳值
+        function sayHi3(userName) {
+            // 取得顯示的位置
+            let showData = document.getElementById('showData');
+
+            // 顯示結果
+            showData.textContent = `Hi, ${userName}`;
+        }
+
+        // 取得姓名（無參數，有傳回值）
+        function getName() {
+            // 取得文字方塊的內容
+            let name1 = document.getElementById('name').value;
+            return name1;
+        }
+   
+        // 寫法四：有參數、有回傳值（此範例不適合！）
+        function sayHi4(userName) {
+            return userName;
+        }
+
+   </script>
+</body>
+
+</html>
