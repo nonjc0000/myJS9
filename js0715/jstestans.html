@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ex2
+        function printEvery3() {
+            for (let i = 1; i <= 88; i = i + 3) {
+                console.log(i);
+            }
+        }
+        // printEvery3();
+
+        // ex3
+        function stars(n) {
+            let result = "" // 創建一個保存累加結果用的變數
+            for (let i = 1; i <= n; i++) {
+                result += '*';
+            }
+            console.log(result);
+        }
+        // stars(3);
+
+        // ex4
+        function isUpperCase(str) {
+
+            // 檢查是否有資料
+            // if (str.trim().length == 0) { // 先去除空白
+            //     return false;
+            // }
+
+            // if (str[0] === str[0].toUpperCase()) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+
+            // 簡化
+            // return str[0] === str[0].toUpperCase(); // 不是對就是錯，所以可以這樣寫
+
+
+            // 另一種做法
+            let UpperCase = false; // 先預設false，如果後續符合條件再改為true
+            str = str.trim(); // 先去除空白
+            for (let i = 0; i < str.length; i++) { // 空陣列length=0，0!<0所以根本不會進迴圈
+                if (str[0] === str[0].toUpperCase()) {
+                    UpperCase = true;
+                    break;
+                }
+            }
+            return UpperCase;
+        }
+        isUpperCase('aBCD');
+        console.log(isUpperCase("ABCD")); 		// returns true
+        console.log(isUpperCase("")); 			// returns false
+        console.log(isUpperCase("aBCD"));		// returns false
+
+        // ex5
+        function isAllUpperCase(str) {
+            // 做法一：整個字串比對
+            // 檢查是否有資料
+            if (str.trim().length == 0) { // 先去除空白
+                return false;
+            }
+
+            // 整個字串轉大寫比對
+
+            // if (str !== str.toUpperCase()) {
+            //     return false;
+            // } 
+            // return true;
+
+            // 簡化
+            return str == str.toUpperCase();
+
+            // 做法二：逐一比對
+            // 檢查是否有資料
+            // if (str.trim().length == 0) { // 先去除空白
+            //     return false;
+            // }
+
+            // // 宣告一個存放T/F值的變數，預設所有字母都是大寫
+            // let AllUpperCase = true;
+
+            // // 逐一檢查是否為大寫
+            // for (let i = 0; i < str.length; i++) {
+            //     if (str[i] !== str[i].toUpperCase()) {
+            //         // 小寫 => 結束
+            //         AllUpperCase = false;
+            //     }
+            // }
+            // return AllUpperCase;
+
+        }
+        // console.log(isAllUpperCase("ABCD")); 			// returns true
+        // console.log(isAllUpperCase("")); 				// returns false
+        // console.log(isAllUpperCase("ABCDEFGHIJKLm")); 	// returns false
+
+        // ex6
+        function position(str) {
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === str[i].toUpperCase()) {
+                    return str[i] + ' ' + i;
+                }
+            }
+            return -1;
+        }
+        // console.log(position("abcd")); 	// prints -1
+        // console.log(position("AbcD"));		// prints A 0
+        // console.log(position("abCD")); 	// prints C 2
+
+        // ex7
+        function findSmallCount(arr, n) {
+            let counter = 0;
+            for (let i = 0; i < arr.length; i++) {
+                // 陣列中的值若小於n，則次數+1
+                if (arr[i] < n) {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+        // console.log(findSmallCount([1, 2, 3], 2)); 		// returns 1
+        // console.log(findSmallCount([1, 2, 3, 4, 5], 0)); 	// returns 0
+        // console.log(findSmallCount([1, 2, 3, 4, 5], 3)); 	// returns 2
+
+        // ex8
+        function findSmallerTotal(arr, n) {
+            let tot = 0;
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] < n) {
+                    tot += arr[i];
+                }
+            }
+            return tot;
+        }
+        // console.log(findSmallerTotal([1, 2, 3], 3)); 			// returns 3
+        // console.log(findSmallerTotal([1, 2, 3], 1)); 			// returns 0
+        // console.log(findSmallerTotal([3, 2, 5, 8, 7], 999)); 	// returns 25
+        // console.log(findSmallerTotal([3, 2, 5, 8, 7], 0)); 		// returns 0
+
+        // ex9
+        function findAllSmall(arr, n) {
+            let newArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < n) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        // console.log(findAllSmall([1, 2, 3], 10)); 		// returns [1, 2, 3]
+        // console.log(findAllSmall([1, 2, 3], 2)); 		// returns [1]
+        // console.log(findAllSmall([1, 3, 5, 4, 2], 4)); 	// returns [1, 3, 2]
+
+        // ex10
+        function sum(arr) {
+            let tot = 0;
+            for (let i = 0; i < arr.length; i++) { // 空字串（空陣列）length=0，迴圈會直接停止
+                tot = tot + arr[i];
+            }
+            return tot;
+        }
+        // console.log(sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 	// returns 55
+        // console.log(sum([])); 							// return 0
+        // console.log(sum([-10, -20, -30])); 				// return -60
+
+
+    </script>
+</body>
+
+</html>
