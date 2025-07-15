@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* ex1 done
+         題目：寫一個函式 printMany ，輸出1, 2, 3, ..., 100
+         結果：
+       printMany();
+         // 1
+         // 2
+         // ...
+         // 100
+         */
+        function printMany() {
+            console.log('ex1')
+            for (let i = 1; i <= 100; i++) {
+                console.log(i);
+            }
+        }
+        // printMany();
+
+        /* ex2 done
+        題目：寫一個函式 printEvery3 ，輸出1, 4, 7, ..., 88
+        結果：
+        printEvery3();
+        // 1
+        // 4
+        // ... 
+        // 88
+        */
+        function printEvery3() {
+            console.log('ex2')
+            for (let j = 1; j <= 88; j += 3) {
+                console.log(j);
+            }
+
+        }
+        // printEvery3();
+
+        /* ex3 done
+        題目：寫一個函式stars ，輸出連續N個*
+        結果：
+
+        stars(3);	 // ***
+        stars(10);	 // **********
+        */
+        function stars(num) {
+            document.write('ex3 <br><br>');
+            for (let k = 0; k < num; k++) {
+                document.write('*');
+            }
+        }
+        stars(10);
+
+        /* ex4
+        題目：寫一個函式 isUpperCase ，檢查第一個字母是否為大寫
+        使用轉大寫函式=>toUpperCase()
+        結果：
+
+        isUpperCase("ABCD"); 		// returns true
+        isUpperCase(""); 			// returns false
+        isUpperCase("aBCD");		// returns false
+        */
+        let ex4Arr = [];
+        function isUpperCase(str) {
+            ex4Arr.push(str);
+            return ex4Arr;
+        }
+        isUpperCase('abc');
+        console.log(ex4Arr);
+
+        /* ex5
+        題目：寫一個函式 isAllUpperCase，檢查所有字母是否為大寫
+        結果：
+
+        console.log(isAllUpperCase("ABCD")); 			// returns true
+        console.log(isAllUpperCase("")); 				// returns false
+        console.log(isAllUpperCase("ABCDEFGHIJKLm")); 	// returns false
+        */
+
+        /* ex6
+        題目：寫一個函式 position，檢查第一個字母大寫的內容與位置，找不到為-1
+        結果：
+
+        console.log(position("abcd")); 	// prints -1
+        console.log(position("AbcD"));		// prints A 0
+        console.log(position("abCD")); 	// prints C 2
+        */
+
+        /* ex7 done
+        題目：寫一個函式 findSmallCount，找出陣列中的值，比第2個參數小的總個數
+        結果：
+
+        console.log(findSmallCount([1, 2, 3], 2)); 			// returns 1
+        console.log(findSmallCount([1, 2, 3, 4, 5], 0)); 	// returns 0
+        */
+        function findSmallCount(ex7Arr, compare) {
+            let ex7FoundArr = ex7Arr.filter((n) => {
+                if (n < compare) {
+                    return true;
+                }
+            })
+            return ex7FoundArr.length;
+        }
+        console.log(findSmallCount([1, 2, 3, 4, 5], 0));
+
+        /* ex8 done
+        題目：寫一個函式 findSmallerTotal，找出陣列中的值，比第2個參數小的總合
+        結果：
+
+        console.log(findSmallerTotal([1, 2, 3], 3)); 			// returns 3
+        console.log(findSmallerTotal([1, 2, 3], 1)); 			// returns 0
+        console.log(findSmallerTotal([3, 2, 5, 8, 7], 999)); 	// returns 25
+        console.log(findSmallerTotal([3, 2, 5, 8, 7], 0)); 		// returns 0
+        */
+        function findSmallerTotal(ex8Arr, compare) {
+            let ex8FoundArr = ex8Arr.filter((m) => {
+                if (m < compare) {
+                    return true;
+                }
+            })
+            // console.log(ex8FoundArr);
+
+            let ex8sum = 0
+            for (let l = 0; l < ex8FoundArr.length; l++) {
+
+                ex8sum += ex8FoundArr[l];
+            }
+            console.log(ex8sum);
+        }
+        findSmallerTotal([3, 2, 5, 8, 7], 999);
+
+        /* ex9 done
+        題目：寫一個函式 findAllSmall，找出陣列中的值，比第2個參數小的值保存在新的陣列中
+        結果：
+
+        console.log(findAllSmall([1, 2, 3], 10)); 		// returns [1, 2, 3]
+        console.log(findAllSmall([1, 2, 3], 2)); 		// returns [1]
+        console.log(findAllSmall([1, 3, 5, 4, 2], 4)); 	// returns [1, 3, 2]
+        */
+        function findAllSmall(ex9Arr, compare) {
+            let ex9FoundArr = ex9Arr.filter((o) => {
+                if (o < compare) {
+                    return true;
+                }
+            })
+            console.log(ex9FoundArr);
+        }
+        findAllSmall([1, 3, 5, 4, 2], 4);
+
+        /* ex10 done
+        題目：寫一個函式 sum，加總陣列中的值
+        結果：
+
+        console.log(sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 	// returns 55
+        console.log(sum([])); 							// return 0
+        console.log(sum([-10, -20, -30])); 				// return -60
+        */
+
+        function sum(ex10Arr) {
+            let ex10sum = 0;
+            for (p = 0; p < ex10Arr.length; p++) {
+                ex10sum += ex10Arr[p];
+            }
+            console.log(ex10sum);
+        }
+        sum([-10, -20, -30]);
+
+
+    </script>
+</body>
+
+</html>
