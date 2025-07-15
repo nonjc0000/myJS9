@@ -69,13 +69,15 @@
         isUpperCase(""); 			// returns false
         isUpperCase("aBCD");		// returns false
         */
-        let ex4Arr = [];
         function isUpperCase(str) {
-            ex4Arr.push(str);
-            return ex4Arr;
+            if(str[0].toUppercase()){
+                return true;
+            }
+            console.log(str);
         }
         isUpperCase('abc');
-        console.log(ex4Arr);
+
+        
 
         /* ex5
         題目：寫一個函式 isAllUpperCase，檢查所有字母是否為大寫
@@ -164,7 +166,6 @@
         console.log(sum([])); 							// return 0
         console.log(sum([-10, -20, -30])); 				// return -60
         */
-
         function sum(ex10Arr) {
             let ex10sum = 0;
             for (p = 0; p < ex10Arr.length; p++) {
