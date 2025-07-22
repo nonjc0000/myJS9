@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 兩數相加
+        function add(n1, n2) {
+            return n1 + n2;
+        }
+        console.log(add(5, 3));
+
+        // 匿名函式（名稱被往前提，函式建立的時候不命名，函式做完之後會把結果丟給let）
+        // let後宣告的型別要到等號後才定義
+        let add2 = function (n1, n2) {
+            return n1 + n2;
+        }
+        console.log(add2(10, 8));
+
+        // 算出圓面積
+        let circle = (rad) => {
+            return Math.PI * rad ** 2
+        }
+        console.log(circle(2));
+
+        // 請傳送半徑，算出圓面積
+        // let getArea = function (r) {
+        //     // 建立一個常數的值（執行中的值，不能變更，一但變更就會出錯）
+        //     const pi = 3.14;
+        //     return pi * r * r; // 函式如果沒有回傳值，就是undefined。函式本身會自帶return，所以當程式敘述只有return的時候就可以省略不寫
+        // }
+        // console.log(getArea(2));
+        
+        // 箭頭函式（arrow function）
+        let getArea = (r) => {
+            // 建立一個常數的值（執行中的值，不能變更，一但變更就會出錯）
+            const pi = 3.14;
+            return pi * r * r; // 函式如果沒有回傳值，就是undefined。函式本身會自帶return，所以當程式敘述只有return的時候就可以省略不寫
+        }
+        console.log(getArea(2));
+
+        
+    </script>
+</body>
+
+</html>

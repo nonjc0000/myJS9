@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立一個add()函式，計算所有參數的總和
+        // let add = (n1, n2, n3 = 0, n4=0) => {
+        //     let tot = n1 + n2 + n3;
+        //     return tot;
+        // }
+        // console.log(add(5, 3));
+        // console.log(add(5, 3, 8));
+        // console.log(add(5, 3, 8, 10));
+
+        // 其餘參數的寫法，來接收不同參數值的個數使用
+        // let add = (...number) => {
+        //     let tot = 0;
+        //     for (let n of number) { // for of的好處就是不用去管n結束了沒，of後面的資料結束迴圈就會結束
+        //         tot += n;
+        //     }
+        //     // for(n=0; n<number.length;n++){
+        //     //     tot += number[n];  // 要注意要取的資料是number[n]不是n本人
+        //     // }
+        //     return tot;
+        // }
+
+        // 其餘陣列參數
+        let add = (...[x, y, z=0]) => { // 如果接收型別是陣列，前面要加其餘參數，不然會出問題
+            let tot = 0;
+            console.log(x);
+            console.log(y);
+            console.log(z);
+            return x + y + z;
+        }
+        // 給的參數值（arguments）比參數（parameter）少的話會return NaN
+
+        console.log(add(5, 3));            //[5, 3]實際傳過去的資料是個陣列 
+        console.log(add(5, 3, 8));         //[5, 3, 8]
+        console.log(add(5, 3, 8, 10));     //[5, 3, 8, 10]
+       
+
+
+    </script>
+</body>
+
+</html>
