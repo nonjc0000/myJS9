@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 將函式當作其他函式的參數
+        let sayHi = () => { // 獨立出來的話其他函式也可以用到
+            return 'Hi, ';
+        }
+
+        // 函式中呼叫另一個函式
+        // 寫法一
+        let welcome = (name) => {
+            console.log(sayHi() + name);
+
+        }
+        welcome('Joy');
+
+        // 寫法二
+        let welcome2 = (callback, name) => {
+            console.log(callback() + name); // 參數/函式名稱跟括號可以視為分開的兩個動作
+        }
+        welcome2(sayHi, 'Joy2');
+
+    </script>
+</body>
+
+</html>

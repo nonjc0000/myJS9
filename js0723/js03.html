@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 實作方式建立物件
+        // 建立物件
+        let user = {
+            // 屬性成員
+            name: 'Joy',
+            age: 23,
+
+            // 方法成員
+            showMsg: function () {
+                // 調用同一個物件中的屬性成員
+                // 方法一
+                console.log(`Hi. I'm ${user.name}!`); // 如果沒有寫user.name就會以為是抓function參數
+                // 方法二
+                console.log(`Hi. I'm ${this.name}!`); // this只能用在調用「同一個物件」中的屬性成員
+            }
+
+        }; // 在外面加分號是為了表示物件結束
+
+        // 只有在物件中的方法才能使用this，出去的話就是變成取用整個文件裡所有的method
+
+        // 取得物件屬性 => 物件名稱.屬性名稱
+        console.log(`使用者姓名：${user.name}`);
+        console.log(`使用者年齡：${user.age}歲`);
+
+        // 使用中括號表示法取得物件屬性
+        // 物件名稱['屬性名稱'];
+        console.log(`使用者姓名2：${user['name']}`);
+        console.log(`使用者年齡2：${user['age']}歲`);
+
+
+        // 取得物件方法 => 物件名稱.方法名稱()
+        user.showMsg();
+
+        // 更變物件屬性
+        // 物件名稱.屬性名稱=屬性值
+        user.age = 17;
+        console.log(user.age);
+        console.log(user['age']);
+
+        // delete 物件名稱.屬性名稱;
+        delete user.age;
+
+        // 刪除物件的屬性：刪除後再取得此屬性，回傳undefined
+        console.log(user.age); // undefined
+
+        
+
+    </script>
+</body>
+
+</html>
