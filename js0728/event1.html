@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body> <!-- 標籤內可以綁定事件，如果不複雜可以這樣寫 -->
+    <!-- <marquee 
+    width="300"
+    style="background-color: yellowgreen; 
+    font-size: 30px;
+    font-style: oblique;
+    border: solid 3px green;"
+    onmouseover="stop();"
+    onmouseout="start();"
+    >
+        WEEEEE
+    </marquee> -->
+
+    <!-- 事件處理方法 -->
+
+    <!-- 標籤綁定 -->
+    <button type='button' onclick="alert('Hi')">show message1</button>
+    <button type='button' onclick="sayHi('Hi')">show message2</button>
+
+    <!-- 呼叫函式 -->
+
+    <script>
+        function sayHi(str) {
+            alert(str);
+        }
+
+    </script>
+
+    <!-- 監聽事件 -->
+    <button type='button' id="btn1">show message3</button>
+    <script>
+        // 使用getElementById
+        // let btn1 = document.getElementById('btn1');
+
+        // 使用querySelector+css符號(id='#', class='.')
+        let btn1 = document.querySelector('#btn1')
+
+        // 使用匿名函式
+        // btn1.addEventListener('click', function(){
+        //     alert('Hi3');
+        // });
+
+        // 使用箭頭函式
+        btn1.addEventListener('click', () => {
+            alert('Hi3');
+        });
+
+    </script>
+
+
+</body>
+
+</html>

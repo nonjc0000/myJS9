@@ -18,21 +18,21 @@
         let btn = document.getElementById('btn');
         let btn2 = document.getElementById('btn2');
 
-        btn.addEventListener('click', function(){
+        btn.addEventListener('click', function () {
             showTime();
         })
 
-        btn2.addEventListener('click', function(){
+        btn2.addEventListener('click', function () {
             counter.innerText = '10'
             showTime();
         })
 
-        function showTime(){
+        function showTime() {
             let interval;
             let curCounter = initialCounter;
             interval = setInterval(() => {
-                if(curCounter<=0){
-                    counter.innerText = `Time's out!`;
+                if (curCounter <= 0) {
+                    counter.innerText = `Time's up!`;
                     btn.style.display = 'none';
                     btn2.style.display = 'block';
                     return clearInterval(interval);

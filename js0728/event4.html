@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><a href="./event2.html">Image Changing</a></p> <!-- 超連結可以帶檔案路徑，但option value不能 -->
+
+    <form>
+        <label for="url">Please select website</label>
+        <!-- 下拉式清單 -->
+        <select name="" id="url">
+            <option value="">Please select</option><!-- 空連結='#' or 'javascript:;'-->
+            <option value="https://www.google.com/">Google</option>
+            <option value="https://open.spotify.com/">Spotify</option>
+            <option value="https://www.youtube.com/">Youtube</option>
+            <option value="http://127.0.0.1:5500/js0728/event2.html">Image Changing</option>
+        </select>
+
+        <script>
+            // 取得下拉清單的位置
+            // let url = document.querySelector('#url');
+            let url = document.getElementById('url');
+
+            url.addEventListener('change', () => {
+                // 檢查更換後的value值長度是否>0
+                if (url.value != '') {
+                    let newWin = open(); // 開新分頁
+                    newWin.location.href = url.value;
+
+                    // this.location.href = url.value; // 不開新分頁
+                }
+            })
+
+
+
+        </script>
+    </form>
+</body>
+
+</html>

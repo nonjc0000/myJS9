@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 135px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--  -->
+    <img src="./images/p1.png" alt="bottles and drinks sit on tiles" id="pic">
+    <script>
+        let pic = document.querySelector('#pic');
+        // 滑鼠碰到圖片時，換圖
+        pic.addEventListener('mouseover', () => {
+            pic.src = './images/p2.jpg';
+        })
+
+        // 滑鼠碰到圖片時，還原圖片
+        pic.addEventListener('mouseleave', () => {
+            pic.src = './images/p1.png';
+        })
+
+        
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
