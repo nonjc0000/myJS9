@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!-- 重要的SEO標籤 -->
+    <style>
+        /* 複合式規則 */
+        form span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- required：必須填寫資料 -->
+    <form action="">
+        <!-- 文字方塊 -->
+        <label for="uid"><span>*</span>帳號</label>
+        <input type="text" id="uid"><br>
+        <!-- 密碼 -->
+        <label for="upw"><span>*</span>密碼</label>
+        <input type="password" id="upw"><br>
+        <!-- err訊息 -->
+        <span id="msg"></span><br><br>
+
+        <!-- 送出 -->
+        <input type='button' value="確定送出" id="btn">
+
+        <!-- 重設 -->
+        <!-- <input type="reset" value="重新填寫"> -->
+    </form>
+
+    <script>
+        let uid = document.querySelector('#uid');
+        let upw = document.querySelector('#upw');
+        let msg = document.querySelector('#msg');
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            let strMsg = ''; // 存放所有err訊息，寫在裡面就每一次onclick都可以清空
+
+            // 帳號檢查
+            if (uid.value.length === 0) {
+                strMsg += `帳號不能空白<br>`;
+            }
+
+            // 密碼檢查
+            // 因為每個欄位都要檢查，所以不行用else if
+            if (upw.value.length === 0) {
+                strMsg += `密碼不能空白<br>`;
+            }
+
+            // 顯示訊息結果
+            msg.innerHTML = strMsg;
+            msg.style.color = 'green'
+        })
+        
+    </script>
+</body>
+
+</html>

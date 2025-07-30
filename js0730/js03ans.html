@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #resultUl li{
+            list-style: none;
+        }
+
+        .chgColor{
+            color: red;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 選項按鈕：複選（checkbox） -->
+    <form action="">
+        科目：
+        <input type="checkbox" name="subject" value="html">HTML
+        <input type="checkbox" name="subject" value="css">CSS
+        <input type="checkbox" name="subject" value="js">JS
+        <input type="button" id="btn" value="送出">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        // 一般的資料不能下style，要變成html標籤才有可能做style，因為js裡面的變數只是一般資料而已
+        // style只能依附在標籤下面
+
+        let result = document.querySelector('#result');
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            let arr = [];
+            let subject = document.getElementsByName('subject');
+            // 逐一檢查是否被選取
+            for (let i = 0; i < subject.length; i++) {
+                if (subject[i].checked) {
+                    arr.push(subject[i].value);
+                }
+            }
+
+            let str = '';
+            str += '<ul id=resultUl>'
+
+            arr.forEach(element => {
+                // 檢查陣列是否為css
+                if (element === 'css') {
+                    // 是 => 變色
+                    str += '<li class="chgColor">'
+                } else {
+                    str += '<li>'
+                }
+
+                str += element;
+                str += '</li>';
+            });
+
+            str += '</ul>';
+            result.innerHTML = str;
+
+        })
+    </script>
+</body>
+
+</html>
